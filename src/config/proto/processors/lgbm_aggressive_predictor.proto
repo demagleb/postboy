@@ -1,0 +1,9 @@
+syntax = "proto2";
+
+package config.processors;
+
+message LgbmAggressivePredictor {
+    required string modelPath = 1;
+    required int64 featuresCount = 2;
+    required int64 partionsSize = 3;
+}

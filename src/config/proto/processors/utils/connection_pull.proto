@@ -1,0 +1,8 @@
+syntax = "proto2";
+
+package connection_pull;
+
+message ConnectionPull {
+    required int64 initConnectionsCnt = 1;
+    optional int64 maxConnectionsCnt = 2;
+}

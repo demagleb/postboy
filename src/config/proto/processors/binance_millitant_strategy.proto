@@ -1,0 +1,22 @@
+syntax = "proto2";
+
+import "processors/utils/binance.proto";
+import "processors/utils/connection_pull.proto";
+
+package config.processors;
+
+message BinanceMillitantStrategyInstrumentConf {
+    required double agrAdjustCoeff = 1;
+    required double thold = 2;
+    required double orderAmt = 3;
+    required string symbol = 4;
+}
+
+message BinanceMillitantStrategy {
+    repeated BinanceMillitantStrategyInstrumentConf symbolsConf = 1;
+    required binance.utils.BinanceConnector binanceConnector = 2;
+    required connection_pull.ConnectionPull connectionPull = 3;
+    required string instrumentsCsv = 4;
+    required int64 timeWaitMs = 5;
+    required int64 tradeLifetimeSeconds = 6;
+};

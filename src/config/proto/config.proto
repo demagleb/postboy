@@ -1,0 +1,18 @@
+syntax = "proto2";
+
+import "binding.proto";
+import "postboy.proto";
+import "prometheus.proto";
+import "telegram_notifier.proto";
+import "thread.proto";
+
+package config;
+
+message Config {
+    repeated Thread thread = 1;
+    repeated Postboy prepared = 2;
+    repeated Postboy postboy = 3;
+    repeated Binding binding = 4;
+    optional Prometheus prometheus = 5;
+    optional TelegramNotifier telegramNotifier = 6;
+}

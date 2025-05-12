@@ -1,0 +1,10 @@
+syntax = "proto2";
+
+package config;
+
+message Thread {
+    required string postboyName = 1;
+    repeated int64 coreList = 2;
+    optional int64 priority = 3;
+    optional int64 nice = 4;
+}

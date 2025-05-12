@@ -1,0 +1,22 @@
+syntax = "proto2";
+
+package config;
+
+enum BindingType {
+    SPSC = 0;
+    SPMC = 1;
+    MPSC = 2;
+    MPMC = 3;
+}
+
+message Socket {
+    required string postboyName = 1;
+    optional int64 index = 2;
+}
+
+message Binding {
+    required string name = 1;
+    optional BindingType type = 2 [default = MPMC];
+    repeated Socket producer = 3;
+    repeated Socket consumer = 4;
+}

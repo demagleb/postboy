@@ -1,0 +1,46 @@
+syntax = "proto2";
+
+import "processors/utils/binance.proto";
+import "processors/utils/connection_pull.proto";
+
+package config.processors;
+
+message SymbolConfig {
+    // Ticker
+    required string symbol = 1;
+
+    // Traffic light
+    optional double trafficLightDelta1 = 2;
+    optional double trafficLightDelta2 = 3;
+
+    // SL & TP
+    required double stopLossLong = 4;
+    required double stopLossShort = 5;
+    required double takeProfitLong = 6;
+    required double takeProfitShort = 7;
+    required double alpha = 8;
+
+    // RSI
+    required int64 overboughtRsiValue = 9;
+    required int64 oversoldRsiValue = 10;
+
+    // Position
+    required double partialSizeWin = 11;
+    required double partialSizeLoss = 12;
+
+    // Amt
+    required double minQty = 17;
+    required double orderAmt = 18;
+
+}
+
+message RinatStrategy {
+    // Symbol configs
+    repeated SymbolConfig symbolConfigs = 1;
+
+    // Connector and connection pull
+    required binance.utils.BinanceConnector binanceConnector = 2;
+    required connection_pull.ConnectionPull connectionPull = 3;
+    required string instrumentsCsv = 4;
+    required int32 minProcessedCandles = 5;
+}

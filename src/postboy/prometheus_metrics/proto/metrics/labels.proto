@@ -1,0 +1,8 @@
+syntax = "proto2";
+
+package import_metrics.metrics;
+
+message Label {
+    required string key = 1;
+    required string value = 2;
+}

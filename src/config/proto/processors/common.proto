@@ -1,0 +1,22 @@
+syntax = "proto2";
+
+package config.processors;
+
+message Dummy {
+}
+
+message FileReader {
+    required string path = 1;
+}
+
+message FileWriter {
+    required string path = 1;
+}
+
+message Null {
+}
+
+message Range {
+    optional uint64 l = 1 [default = 0];
+    optional uint64 r = 2;
+}

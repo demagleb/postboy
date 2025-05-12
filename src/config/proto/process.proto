@@ -1,0 +1,35 @@
+syntax = "proto2";
+
+import "processors/binance_candle_generator.proto";
+import "processors/binance_feature_generator.proto";
+import "processors/binance_md_connector.proto";
+import "processors/binance_millitant_strategy.proto";
+import "processors/benchmark.proto";
+import "processors/common.proto";
+import "processors/instrument_downloader.proto";
+import "processors/lgbm_aggressive_predictor.proto";
+import "processors/rinat_strategy.proto";
+import "processors/websocket.proto";
+
+package config;
+
+message Process {
+    oneof Processes {
+        processors.Dummy dummy = 1;
+        processors.FileReader fileReader = 2;
+        processors.FileWriter fileWriter = 3;
+        processors.Null null = 4;
+        processors.Range range = 5;
+        processors.InstrumentDownloader instrumentDownloader = 6;
+        processors.Websocket websocket = 7;
+        processors.BinanceMarketdataConnector binanceMarketdataConnector = 8;
+        processors.BinanceFeatureGenerator binanceFeatureGenerator = 9;
+        processors.LgbmAggressivePredictor lgbmAggressivePredictor = 10;
+        processors.BinanceMillitantStrategy binanceMillitantStrategy = 11;
+        processors.RinatStrategy rinatStrategy = 12;
+        processors.BinanceCandleGenerator binanceCandleGenerator = 13;
+        processors.DummyUint64 dummyUInt64 = 14;
+        processors.LatencyCounter latencyCounter = 15;
+        processors.Now now = 16;
+    }
+}

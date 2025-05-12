@@ -1,0 +1,15 @@
+syntax = "proto2";
+
+import "metrics/counter.proto";
+import "metrics/gauge.proto";
+
+package import_metrics;
+
+message MetricFamily {
+    required string name = 1;
+    required string help = 2;
+
+    // One of them should not be empty
+    repeated metrics.Counter counters = 3;
+    repeated metrics.Gauge gauges = 4;
+}

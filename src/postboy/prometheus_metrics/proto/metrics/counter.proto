@@ -1,0 +1,10 @@
+syntax = "proto2";
+
+import "metrics/labels.proto";
+
+package import_metrics.metrics;
+
+message Counter {
+    required double value = 1;
+    repeated Label labels = 2;
+}

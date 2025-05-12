@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postboy</title>
+    <script src="https://unpkg.com/d3@7"></script>
+    <script src="https://unpkg.com/force-graph"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="sidebar">
+        <button class="close-btn">&times;</button>
+        <div class="node-card">
+            <div id="node-name" class="node-title">Select a node</div>
+            <div id="node-state" class="state-indicator">Unknown</div>
+            <div class="node-info">
+                <div class="property">
+                    <div class="property-name">Configuration:</div>
+                    <pre id="node-config">No node selected</pre>
+                </div>
+                <div class="property">
+                    <div class="property-name">Latency Metrics:</div>
+                    <pre id="node-latencies">No metrics available</pre>
+                </div>
+            </div>
+            <div class="controls">
+                <button id="btn-run">Run</button>
+                <button id="btn-stop">Request Stop</button>
+                <button id="btn-resume">Request Resume</button>
+                <button id="btn-finish">Request Finish</button>
+                <button id="btn-sample">Request Sample</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="action-buttons">
+        <button id="btn-create-postboy" class="action-btn">Create Postboy</button>
+        <button id="btn-create-binding" class="action-btn">Create Binding</button>
+    </div>
+
+    <!-- Modal for Postboy creation -->
+    <div id="postboy-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Create Postboy</h2>
+            <div class="form-group">
+                <label for="postboy-config">Configuration (JSON):</label>
+                <textarea id="postboy-config" rows="10" required></textarea>
+            </div>
+            <button id="submit-postboy" class="submit-btn">Create</button>
+        </div>
+    </div>
+
+    <!-- Modal for Binding creation -->
+    <div id="binding-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Create Binding</h2>
+            <div class="form-group">
+                <label for="binding-config">Configuration (JSON):</label>
+                <textarea id="binding-config" rows="10" required></textarea>
+            </div>
+            <button id="submit-binding" class="submit-btn">Create</button>
+        </div>
+    </div>
+
+    <div id="graph-container"></div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

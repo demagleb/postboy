@@ -1,0 +1,21 @@
+add_executable(
+    postboy
+    api.cpp
+    main.cpp
+)
+
+target_link_libraries(
+    postboy
+    argparse
+    common_system
+    common_util
+    config
+    nlohmann_json::nlohmann_json
+    fmt
+    message_notifier
+    postboy_runtime
+    processors
+    telegram_notifier
+    httplib::httplib
+    magic_enum::magic_enum
+)

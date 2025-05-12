@@ -1,0 +1,22 @@
+cmake_minimum_required(VERSION 3.24)
+set(CMAKE_PROJECT_TOP_LEVEL_INCLUDES ${CMAKE_SOURCE_DIR}/cmake/ConanProvider.cmake)
+project(postboy)
+
+include(cmake/Ccache.cmake)
+include(cmake/CheckCompiler.cmake)
+include(cmake/CommonFunctions.cmake)
+include(cmake/CompileOptions.cmake)
+include(cmake/Development.cmake)
+include(cmake/GlobalEnv.cmake)
+include(cmake/Processors.cmake)
+include(cmake/Sanitize.cmake)
+include(cmake/Test.cmake)
+include(cmake/HeaderOnlyLib.cmake)
+include(cmake/ThirdParty.cmake)
+
+include(third_party/_all.cmake)
+
+add_subdirectory(bin)
+add_subdirectory(tests)
+add_subdirectory(src)
+add_subdirectory(benchmarks)

@@ -1,0 +1,9 @@
+syntax = "proto2";
+
+package config.processors;
+
+message InstrumentDownloader {
+    required string host = 1;
+    required string path = 2;
+    required string outputCsv = 3;
+}

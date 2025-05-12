@@ -1,0 +1,9 @@
+syntax = "proto2";
+
+package config.processors;
+
+message Websocket {
+    required string host = 1;
+    optional string path = 2 [default = ""];
+    required int64 port = 3;
+}

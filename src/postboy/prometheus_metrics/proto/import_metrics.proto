@@ -1,0 +1,9 @@
+syntax = "proto2";
+
+import "metric_family.proto";
+
+package import_metrics;
+
+message ImportMetrics {
+    repeated MetricFamily families = 1;
+}

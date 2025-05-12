@@ -1,0 +1,13 @@
+syntax = "proto2";
+
+import "processors/utils/binance.proto";
+
+package config.processors;
+
+message BinanceCandleGenerator {
+    repeated string instrumentSymbols = 1;
+    required binance.utils.BinanceType binanceType = 2;
+    required string instrumentsCsv = 3;
+    required binance.utils.BinanceConnector binanceConnector = 4;
+    required int64 candleCountRequest = 5 [default = 122];
+}

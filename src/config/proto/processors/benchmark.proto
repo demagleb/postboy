@@ -1,0 +1,12 @@
+syntax = "proto2";
+
+package config.processors;
+
+message DummyUint64 {
+}
+
+message LatencyCounter {
+}
+
+message Now {
+}

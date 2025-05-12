@@ -1,0 +1,10 @@
+syntax = "proto2";
+
+package config;
+
+message TelegramNotifier {
+    required string url = 1;
+    required string token = 2;
+    required string chatId = 3;
+    required string sendMessageRoute = 4;
+}

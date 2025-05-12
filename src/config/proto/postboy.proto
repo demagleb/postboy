@@ -1,0 +1,10 @@
+syntax = "proto2";
+
+import "process.proto";
+
+package config;
+
+message Postboy {
+    required string name = 1;
+    required Process process = 2;
+}

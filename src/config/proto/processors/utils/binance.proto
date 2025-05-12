@@ -1,0 +1,42 @@
+syntax = "proto2";
+
+package binance.utils;
+
+enum BinanceType {
+    SPOT = 0;
+    FUTURES = 1;
+}
+
+message BinanceConnector {
+    // connection
+    required string host = 1;
+    required string port = 2;
+
+    // routes
+    required string pingRoute = 3;
+    required string placeOrderRoute = 4;
+    required string cancelOrderRoute = 5;
+    required string cancelAllOpenOrdersRoute = 6;
+    required string modifyOrderRoute = 7;
+    required string candleDataRoute = 8;
+
+    // request weights
+    required int64 pingWeight = 9;
+    required int64 placeOrderWeight = 10;
+    required int64 cancelOrderWeight = 11;
+    required int64 cancelAllOpenOrdersWeight = 12;
+    required int64 modifyOrderWeight = 13;
+    required int64 candleDataWeight = 14;
+    required int64 maxWeight = 15;
+
+    // fee rates
+    required double makerFeeRate = 16;
+    required double takerFeeRate = 17;
+
+    // leverage
+    required double leverage = 18;
+
+    // Keys
+    optional string apiKey = 19;
+    optional string apiSecret = 20;
+}
